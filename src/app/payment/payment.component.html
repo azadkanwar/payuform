@@ -1,6 +1,6 @@
 <div class="col-md-4">
   <h2>PayU Payment Form</h2>
-  <form  #heroForm="ngForm" action="https://test.payu.in/_payment" name="payuform" method="POST" target="payment_popup"  onsubmit="window.open('about:blank','payment_popup','width=900,height=500');">
+  <form   ngNoForm action="https://test.payu.in/_payment" name="payuform" method="POST" target="payment_popup"  onsubmit="window.open('about:blank','payment_popup','width=900,height=500');">
     <div class="form-group">
       <label for="productInfo">Product Name:</label>
       <input type="text" class="form-control" id="productInfo" name="productinfo" [(ngModel)]="payuform.productinfo">
@@ -31,7 +31,7 @@
     <textarea name="hash" id="hash" ng-model="hash" rows="2" cols="2" hidden [(ngModel)]="payuform.hash"></textarea>
     <textarea name="txnid" id="txnid" ng-model="txnid" rows="2" cols="2" hidden [(ngModel)]="payuform.txnid"></textarea>
     <textarea name="service_provider" id="service_provider" rows="2" cols="2" hidden></textarea>
-    <button *ngIf="disablePaymentButton" type="button"  class="btn btn-default" (click)="confirmPayment()"  [disabled]="!heroForm.form.valid">Confirm</button>
+    <button *ngIf="disablePaymentButton" type="button"  class="btn btn-default" (click)="confirmPayment()" >Confirm</button>
     <button *ngIf="!disablePaymentButton" type="submit" class="btn btn-danger">Submit</button>
   </form>
 </div>
